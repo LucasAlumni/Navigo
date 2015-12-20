@@ -1,0 +1,146 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+   Navigo | Bienvenue
+{% endblock %}
+
+{% block body %}
+	<!-- page heading start-->
+    <div class="page-heading">
+        <h3>
+            Bienvenue sur Navigo
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Navigo</a>
+            </li>
+            <li class="active"> My Navigoboard </li>
+        </ul>
+        <div class="state-info">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="summary">
+                        <span>yearly expense</span>
+                        <h3 class="red-txt">$ 45,600</h3>
+                    </div>
+                    <div id="income" class="chart-bar"></div>
+                </div>
+            </section>
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="summary">
+                        <span>yearly  income</span>
+                        <h3 class="green-txt">$ 45,600</h3>
+                    </div>
+                    <div id="expense" class="chart-bar"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- page heading end-->
+    <!--body wrapper start-->
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-6">
+                <!--statistics start-->
+                <div class="row state-overview">
+                    <div class="col-md-6 col-xs-12 col-sm-6">
+                        <div class="panel purple">
+                            <div class="symbol">
+                                <i class="fa fa-gavel"></i>
+                            </div>
+                            <div class="state-value">
+                                <div class="value">Ma Carte</div>
+                                <div class="title">Activé</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-sm-6">
+                        <div class="panel red">
+                            <div class="symbol">
+                                <i class="fa fa-tags"></i>
+                            </div>
+                            <div class="state-value">
+                                <div class="value">Mes Zone</div>
+                                <div class="title">Zone 1 à 5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row state-overview">
+                    <div class="col-md-6 col-xs-12 col-sm-6">
+                        <div class="panel blue">
+                            <div class="symbol">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <div class="state-value">
+                                <div class="value">Abonnement</div>
+                                <div class="title">Expire le 03/10/16</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-sm-6">
+                        <div class="panel green">
+                            <div class="symbol">
+                                <i class="fa fa-eye"></i>
+                            </div>
+                            <div class="state-value">
+                                <div class="value">Ma Gare</div>
+                                <div class="title">Cergy RER A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--statistics end-->
+            </div>
+            <div class="col-md-6">
+                <!--more statistics box start-->
+                <div class="panel deep-purple-box">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="text-center">
+                                <img alt="" src="{{ asset ('assets/images/photos/Navigo/navigo-anonyme.png') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--more statistics box end-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Ajouter une gare
+                          <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        </span>
+                    </header>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="text" id="gmap_geocoding_address" class=" form-control" placeholder="Address..." />
+                            </div>
+                            <input type="button" id="gmap_geocoding_btn" class="btn btn-primary" value="Search" />
+                        </form>
+                        <br>
+                        <div id="gmap_geocoding" class="gmaps"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!--Google Map-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="js/google-map/gmaps.js"></script>
+    <script src="js/google-map/gmaps-init.js"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            GoogleMaps.init();
+        });
+    </script>
+
+{% endblock %}

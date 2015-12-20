@@ -1,0 +1,55 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+<main class="page-content">
+    <div class="page-inner">
+        <div id="main-wrapper">
+            <div class="row">
+                <div class="col-md-3 center">
+                    <div class="login-box">
+                        <a href="{{ path("fos_user_security_login")}}" class="logo-name text-lg text-center">Navigo</a>
+                        <p class="text-center m-t-md">Créer un compte Navigo</p>
+
+                        <form action="{{ path('fos_user_registration_register') }}"  method="POST">
+
+                            <div class="form-group">
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'form.email'|trans } }) }}
+        						{{ form_errors(form.email) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'form.username'|trans } }) }}
+        						{{ form_errors(form.username) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.firstname, { 'attr': {'class': 'form-control', 'placeholder': 'Prénom' } }) }}
+        						{{ form_errors(form.firstname) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.lastname, { 'attr': {'class': 'form-control', 'placeholder': 'Nom' } }) }}
+        						{{ form_errors(form.lastname) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'form.password'|trans } }) }}
+        						{{ form_errors(form.plainPassword.first) }}
+                            </div>
+                            <div class="form-group">
+                            	{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'form.password_confirmation'|trans } }) }}
+        						{{ form_errors(form.plainPassword.second) }}
+                            </div>
+                            {{ form_widget(form._token) }}
+                            <label>
+                                <input type="checkbox"> Accepter les termes et la politique
+                            </label>
+                            <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-success btn-block m-t-xs" />
+                            <p class="text-center m-t-xs text-sm">Vous avez déjà un compte?</p>
+                            <a href="{{ path("fos_user_security_login")}}" class="btn btn-default btn-block m-t-xs">{{ 'security.login.submit'|trans }}</a>
+                        </form>
+                        <p class="text-center m-t-xs text-sm">2015 &copy; Navigo.</p>
+                    </div>
+                </div>
+            </div><!-- Row -->
+        </div><!-- Main Wrapper -->
+    </div><!-- Page Inner -->
+</main><!-- Page Content -->

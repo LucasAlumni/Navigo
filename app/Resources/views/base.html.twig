@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="keywords" content="Navigo">
+        <meta name="description" content="Navigo Project Sup'internet">
+        <meta name="author" content="KFC">
+        <title>{% block title %}Navigo{% endblock %}</title>
+
+        <!--common-->
+        <link href="{{ asset ('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset ('assets/css/style-responsive.css') }}" rel="stylesheet">
+
+        <!--file upload-->
+        <link rel="stylesheet" type="text/css" href="{{ asset ('assets/css/bootstrap-fileupload.min.css') }}" />
+
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+        {# {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <header>
+            <div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                    <p>{{ app.user.email }}</p>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+            </div> 
+        </header> #}
+
+    <body class="sticky-header">
+
+        <section>
+            <!-- left side start-->
+            <div class="left-side sticky-left-side">
+
+                <!--logo and iconic logo start-->
+                <div class="logo">
+                    <a href="index.html"><img src="{{ asset ('assets/images/logo.png') }}" alt=""></a>
+                </div>
+
+                <div class="logo-icon text-center">
+                    <a href="index.html"><img src="{{ asset ('assets/images/logo_icon.png') }}" alt=""></a>
+                </div>
+                <!--logo and iconic logo end-->
+
+                <div class="left-side-inner">
+
+                    <!-- visible to small devices only -->
+                    <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                        <div class="media logged-user">
+                            <img alt="" src="{{ asset ('assets/images/photos/user1.png') }}" class="media-object">
+                            <div class="media-body">
+                                <h4><a href="#">{{ app.user.username }}</a></h4>
+                                <span>{{ app.user.email }}</span>
+                            </div>
+                        </div>
+
+                        <h5 class="left-nav-title">Account Information</h5>
+                        <ul class="nav nav-pills nav-stacked custom-nav">
+                          <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                          <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                          <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!--sidebar nav start-->
+                    <ul class="nav nav-pills nav-stacked custom-nav">
+                        <li><a href="{{ path('home') }}"><i class="fa fa-home"></i> <span>NavigoBoard</span></a></li>
+                        <li class="menu-list"><a href=""><i class="fa fa-credit-card"></i> <span>Ma carte</span></a>
+                            <ul class="sub-menu-list">
+                                <li><a href="{{ path('fos_user_profile_show') }}"> Voir ma carte</a></li>
+                                <li><a href=""> Mon Abonnement</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="'fos_user_profile_show'"><i class="fa fa-bullhorn"></i> <span>Offre d'abonnement</span></a></li>
+
+                       
+                        <li class="menu-list"><a href="#"><i class="fa fa-info"></i> <span>Informations</span></a>
+                            <ul class="sub-menu-list">
+                                <li><a href="basic_table.html"> Basic Table</a></li>
+                                <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                                <li><a href="responsive_table.html"> Responsive Table</a></li>
+                                <li><a href="editable_table.html"> Edit Table</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Mes Gares</span></a>
+                            <ul class="sub-menu-list">
+                                <li><a href="google_map.html"> Google Map</a></li>
+                                <li><a href="vector_map.html"> Vector Map</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> <span>Mon Profile</span></a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> <span>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</span></a></li>
+
+                    </ul>
+                    <!--sidebar nav end-->
+
+                </div>
+            </div>
+            <!-- left side end-->
+            
+            <!-- main content start-->
+            <div class="main-content" >
+
+                <!-- header section start-->
+                <div class="header-section">
+
+                    <!--toggle button start-->
+                    <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+                    <!--toggle button end-->
+
+                    <!--search start-->
+                    <!-- <form class="searchform" action="index.html" method="post">
+                        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+                    </form> -->
+                    <!--search end-->
+
+                    <!--notification menu start -->
+                    <div class="menu-right">
+                        <ul class="notification-menu">
+                           
+                            <li>
+                                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <img src="{{ asset ('assets/images/photos/user-avatar.png') }}" alt="" />
+                                    {{ app.user.firstname }}
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                                    <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!--notification menu end -->
+
+                </div>
+                <!-- header section end-->
+
+
+                {% block body %}
+    
+                {% endblock %}
+                {% block fos_user_content %}{% endblock %}
+                <!--body wrapper end-->
+
+                <!--footer section start-->
+                <footer>
+                    2015 &copy; Navigo
+                </footer>
+                <!--footer section end-->
+
+
+            </div>
+            <!-- main content end-->
+        </section>
+
+        <!-- Placed js at the end of the document so the pages load faster -->
+        <script src="{{ asset ('assets/js/jquery-1.10.2.min.js') }}"></script>
+        <script src="{{ asset ('assets/js/jquery-ui-1.9.2.custom.min.js') }}"></script>
+        <script src="{{ asset ('assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+        <script src="{{ asset ('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset ('assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ asset ('assets/js/jquery.nicescroll.js') }}"></script>
+
+        <!--common scripts for all pages-->
+        <script src="{{ asset ('assets/js/scripts.js') }}"></script>
+
+
+        
+
+
+    </body>
+</html>
+

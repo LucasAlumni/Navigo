@@ -1,0 +1,161 @@
+{# {% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+ #}
+
+ {% trans_default_domain 'FOSUserBundle' %}
+
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="profile-pic text-center">
+                                    <img alt="" src="{{ asset ('assets/images/photos/user1.png') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <ul class="p-info">
+                                    <li>
+                                        <div class="title">Nom</div>
+                                        <div class="desk">{{ user.lastname }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">Prénom</div>
+                                        <div class="desk">{{ user.firstname }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">Email</div>
+                                        <div class="desk">{{ user.email }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">Adresse</div>
+                                        <div class="desk">10 rue de sauvage</div>
+                                    </li>
+                                    <li>
+                                        <div class="title">Ville</div>
+                                        <div class="desk">Cergy</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body p-states">
+                                <div class="summary pull-left">
+                                    <h4>Mes <span>Gares</span></h4>
+                                    <span>Favorite</span>
+                                    <h3>Cergy-Prefecture RER A</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body p-states green-box">
+                                <div class="summary pull-left">
+                                    <h4>Mes<span> Zones</span></h4>
+                                    <span>Ile-de-France</span>
+                                    <h3>Zone 1 à 5</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="profile-desk">
+                                    <h1>{{ user.username }}</h1>
+                                    <span class="designation">Abonnée jusqu'au 03/10/16</span>
+                                    <div class="text-center">
+                                        <img alt="" src="{{ asset ('assets/images/photos/Navigo/navigo-anonyme.png') }}">
+                                    </div>
+                                    <p>
+                                    
+                                    </p>
+                                    <a class="btn p-follow-btn pull-left" href="#"> <i class="fa fa-check"></i> Editer</a>
+
+                                    <ul class="p-social-link pull-right">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Changer d'avatar
+                              <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                            </header>
+                            <div class="panel-body">
+                                <form action="#" class="form-horizontal ">
+                                    <div class="form-group last">
+                                        <label class="control-label col-md-3">Avatar Upload</label>
+                                        <div class="col-md-9">
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <div class="fileupload-new thumbnail" style="width: 200px; height: 200px;">
+                                                    <img src="http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                                </div>
+                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                                <div>
+                                                       <span class="btn btn-default btn-file">
+                                                       <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
+                                                       <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                                                       <input type="file" class="default" />
+                                                       </span>
+                                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <span class="label label-danger ">NOTE!</span>
+                                                 <span>
+                                                 Taille : 200x200 pixel
+                                                 </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+     </div>
